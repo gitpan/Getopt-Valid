@@ -216,7 +216,7 @@ Can be written in 4 styles
 use strict;
 use warnings;
 
-use version 0.74; our $VERSION = qv( "v0.1.1" );
+use version 0.74; our $VERSION = qv( "v0.1.3" );
 
 use Getopt::Long;
 
@@ -605,7 +605,11 @@ sub usage {
         push @arg_out, ' | -'. $ref->{ short } if $ref->{ short };
         push @arg_out, ' : '. $mode_out->( $ref->{ mode } );
         push @output, join( '', @arg_out );
-        push @output, '    '. $ref->{ description };
+        
+        my @description = ref( $ref->{ description } )
+            ? ( map { '    '. $_ } @{ $ref->{ description } } )
+            : ( '    '. $ref->{ description } );
+        push @output, join( "\n", @description );
         push @output, '';
     }
     push @output, '';
@@ -634,6 +638,8 @@ sub errors {
 
 =item * L<Getopt::Long>
 
+=item * Latest release on Github L<http://github.com/ukautz/Getopt-Valid>
+
 =back
 
 =head1 AUTHOR
@@ -641,6 +647,7 @@ sub errors {
 =over
 
 =item * Ulrich Kautz <uk@fortrabbit.de>
+
 
 =back
 
