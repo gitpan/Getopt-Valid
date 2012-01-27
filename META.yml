@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Getopt-Valid
-version:            v0.1.3
+version:            v0.1.4
 abstract:           Getopt implementation with extended validation
 author:
     - Ulrich Kautz <uk@fortrabbit.e>
